@@ -1,4 +1,4 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.ru>
 
 #include <gtest/gtest.h>
 #include "Stack.hpp"
@@ -34,7 +34,6 @@ TEST(Test_stack, Func_pop){
 
 TEST(Test_stack, Test_move){
   EXPECT_TRUE(std::is_move_constructible<Stack<int>>::value);
-  EXPECT_TRUE(std::is_move_assignable<Stack<int>>::value);
 }
 
 TEST(Test_stack, Test_copy) {
@@ -73,8 +72,6 @@ TEST(NoCopyStack, Test_push_emplace_and_head) {
 
 TEST(NoCopyableStack, Is_Move) {
   EXPECT_TRUE(std::is_move_constructible
-                  <NoCopyStack<Struct<std::string>>>::value);
-  EXPECT_TRUE(std::is_move_assignable
                   <NoCopyStack<Struct<std::string>>>::value);
 }
 

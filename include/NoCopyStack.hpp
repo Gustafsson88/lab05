@@ -1,10 +1,9 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.ru>
 
 #ifndef TEMPLATE_NOCOPYSTACK_HPP_
 #define TEMPLATE_NOCOPYSTACK_HPP_
 
 #include<iostream>
-#include<type_traits>
 
 template <typename T>
 struct  stack_no_copy_element
@@ -23,9 +22,7 @@ class NoCopyStack
   }
   explicit NoCopyStack(const NoCopyStack& stack) = delete;
 
-  NoCopyStack(NoCopyStack&& stack) noexcept = default;
-
-  auto operator = (NoCopyStack&& stack) noexcept -> NoCopyStack& = default;
+  NoCopyStack(NoCopyStack&& stack) noexcept { _head = std::move(stack._head);}
 
   ~NoCopyStack()
   {

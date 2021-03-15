@@ -1,4 +1,4 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.ru>
 
 #include <Stack.hpp>
 #include <NoCopyStack.hpp>

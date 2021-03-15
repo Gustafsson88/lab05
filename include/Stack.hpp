@@ -1,10 +1,9 @@
-// Copyright 2021 Danil Postvaykin <postvaykin01@mail.ru>
+// Copyright 2021 Alexandr Guchkov <firer.a45@gmail.ru>
 
 #ifndef INCLUDE_STACK_HPP_
 #define INCLUDE_STACK_HPP_
 
 #include<iostream>
-#include<type_traits>
 
 template <typename T>
 struct  stack_element
@@ -22,8 +21,7 @@ class Stack
     _head = nullptr;
   }
   explicit Stack(const Stack& _stack) = delete;
-  Stack(Stack&& _stack) = default;
-  auto operator=(Stack&& stack) -> Stack& = default;
+  Stack(Stack&& stack) noexcept { _head = std::move(stack._head); }
   ~Stack()
   {
     while (_head)
